@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnopeMerge.UnitTests", "Tests\AnopeMerger.UnitTests\AnopeMerge.UnitTests.csproj", "{95245116-AB3F-4A2C-B435-25FAA48462EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C9AC10E0-1680-47CA-8E1D-CA219AC84043}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnopeMerge.Core", "AnopeMerger.Core\AnopeMerge.Core.csproj", "{34852887-E611-4C3D-AF04-93030952188D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95245116-AB3F-4A2C-B435-25FAA48462EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95245116-AB3F-4A2C-B435-25FAA48462EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95245116-AB3F-4A2C-B435-25FAA48462EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95245116-AB3F-4A2C-B435-25FAA48462EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34852887-E611-4C3D-AF04-93030952188D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34852887-E611-4C3D-AF04-93030952188D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34852887-E611-4C3D-AF04-93030952188D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34852887-E611-4C3D-AF04-93030952188D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{95245116-AB3F-4A2C-B435-25FAA48462EB} = {C9AC10E0-1680-47CA-8E1D-CA219AC84043}
+	EndGlobalSection
+EndGlobal
