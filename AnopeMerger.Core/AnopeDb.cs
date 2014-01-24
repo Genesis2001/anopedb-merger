@@ -27,9 +27,12 @@ namespace AnopeMerge.Core
 		public AnopeDb()
 		{
 			BotServ = new List<AnopeObject>();
+			NickServ = new List<AnopeObject>();
 		}
 
 		public IList<AnopeObject> BotServ { get; private set; }
+
+		public IList<AnopeObject> NickServ { get; private set; }
 		
 		public void Load(string path)
 		{
@@ -103,6 +106,13 @@ namespace AnopeMerge.Core
 					case "BotInfo":
 					{
 						BotServ.Add(obj);
+						obj = null;
+					}
+						break;
+
+					case "NickCore":
+					{
+						NickServ.Add(obj);
 						obj = null;
 					}
 						break;

@@ -67,6 +67,16 @@ namespace AnopeMerge.UnitTests
 			var actual = bot.ToString();
 			Assert.That(actual, Is.EqualTo(expected));
 		}
+
+		[Test]
+		public void Load_FromStream_ShouldRecognizeNickCoreAsNickServEntries()
+		{
+			var stream = Resources.NickCoreMultiTextStream.ToStream();
+
+			SUT.Load(stream);
+
+			Assert.That(SUT.NickServ.Count, Is.EqualTo(3));
+		}
 	}
 
 	// ReSharper enable InconsistentNaming

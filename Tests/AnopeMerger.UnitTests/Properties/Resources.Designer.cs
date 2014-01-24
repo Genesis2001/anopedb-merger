@@ -111,5 +111,33 @@ namespace AnopeMerge.UnitTests.Properties {
                 return ResourceManager.GetString("BotInfoTextStream", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OBJECT NickCore
+        ///ID 80
+        ///DATA display Cotsuma
+        ///DATA pass sha256:9951fda25fabe2afebca34107c34f6333c771abfc1a9145a31f8ce8c7d83b218:130d7a9447944a940aaba52004ac28db0aeedf644f33bf6b2bce0df971ea9152
+        ///DATA email begamache@gmail.com
+        ///DATA language en_US
+        ///DATA access *Cotsuma@*.cpe.cableone.net 
+        ///DATA memomax 30
+        ///DATA MEMO_SIGNON 1
+        ///DATA MEMO_RECEIVE 1
+        ///DATA HIDE_EMAIL 1
+        ///DATA NS_PRIVATE 1
+        ///DATA AUTOOP 1
+        ///DATA KILLPROTECT 1
+        ///DATA NS_SECURE 1
+        ///END
+        ///OBJECT NickCore
+        ///ID 4
+        ///DATA display crysis
+        ///DATA pass sha256:60c07c3627f17da07575c2264c0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string NickCoreMultiTextStream {
+            get {
+                return ResourceManager.GetString("NickCoreMultiTextStream", resourceCulture);
+            }
+        }
     }
 }

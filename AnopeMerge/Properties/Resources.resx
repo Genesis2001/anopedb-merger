@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,7 +60,6 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -69,10 +68,9 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -87,10 +85,9 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -112,100 +109,9 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BotInfoSingularTextStream" xml:space="preserve">
-    <value>OBJECT BotInfo
-ID 1
-DATA nick BotServ
-DATA user services
-DATA host services.nite-serv.com
-DATA realname Bot Service
-DATA created 1361509363
-DATA oper_only 0
-END</value>
-  </data>
-  <data name="BotInfoTextStream" xml:space="preserve">
-    <value>OBJECT BotInfo
-ID 1
-DATA nick BotServ
-DATA user services
-DATA host services.nite-serv.com
-DATA realname Bot Service
-DATA created 1361509363
-DATA oper_only 0
-END
-OBJECT BotInfo
-ID 2
-DATA nick ChanServ
-DATA user services
-DATA host services.nite-serv.com
-DATA realname Channel Registration Service
-DATA created 1361509363
-DATA oper_only 0
-END
-OBJECT BotInfo
-ID 3
-DATA nick Global
-DATA user services
-DATA host services.nite-serv.com
-DATA realname Global Noticer
-DATA created 1361509363
-DATA oper_only 0
-END</value>
-  </data>
-  <data name="NickCoreMultiTextStream" xml:space="preserve">
-    <value>OBJECT NickCore
-ID 80
-DATA display Cotsuma
-DATA pass sha256:9951fda25fabe2afebca34107c34f6333c771abfc1a9145a31f8ce8c7d83b218:130d7a9447944a940aaba52004ac28db0aeedf644f33bf6b2bce0df971ea9152
-DATA email begamache@gmail.com
-DATA language en_US
-DATA access *Cotsuma@*.cpe.cableone.net 
-DATA memomax 30
-DATA MEMO_SIGNON 1
-DATA MEMO_RECEIVE 1
-DATA HIDE_EMAIL 1
-DATA NS_PRIVATE 1
-DATA AUTOOP 1
-DATA KILLPROTECT 1
-DATA NS_SECURE 1
-END
-OBJECT NickCore
-ID 4
-DATA display crysis
-DATA pass sha256:60c07c3627f17da07575c2264c056a8f192ff7dcb106f2fd71a15dd649796f4b:3377ffb51005c58f72f0ab675f3effdd6f5e05a3635793932bd17d4c35b75e52
-DATA email dgcrysis992@hotmail.de
-DATA language de_DE
-DATA access *crysis@*.nite-serv.com 
-DATA memomax 30
-DATA MEMO_SIGNON 1
-DATA MEMO_RECEIVE 1
-DATA HIDE_EMAIL 1
-DATA NS_PRIVATE 1
-DATA AUTOOP 1
-DATA KILLPROTECT 1
-DATA NS_SECURE 1
-END
-OBJECT NickCore
-ID 76
-DATA display Cronus
-DATA pass sha256:6970d0575f53321dab0ac0e9c85ae055fd60e80f250a5e25cd6fe8e44113cd36:18b509e62a5415dc30eb01ec3d6d68117a9bf1e509cbe9c119ca7e5e1f7a8559
-DATA email cronus@nite-serv.com
-DATA language en_US
-DATA access *@*.nite-serv.com *@*.cronus89.com *@localhost 
-DATA memomax 50
-DATA MEMO_SIGNON 1
-DATA MEMO_RECEIVE 1
-DATA HIDE_EMAIL 1
-DATA NS_PRIVATE 1
-DATA AUTOOP 1
-DATA KILLPROTECT 1
-DATA NS_SECURE 1
-DATA NS_STATS 1
-END</value>
-  </data>
 </root>
