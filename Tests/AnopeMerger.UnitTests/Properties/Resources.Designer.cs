@@ -69,6 +69,23 @@ namespace AnopeMerge.UnitTests.Properties {
         ///DATA realname Bot Service
         ///DATA created 1361509363
         ///DATA oper_only 0
+        ///END.
+        /// </summary>
+        internal static string BotInfoSingularTextStream {
+            get {
+                return ResourceManager.GetString("BotInfoSingularTextStream", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OBJECT BotInfo
+        ///ID 1
+        ///DATA nick BotServ
+        ///DATA user services
+        ///DATA host services.nite-serv.com
+        ///DATA realname Bot Service
+        ///DATA created 1361509363
+        ///DATA oper_only 0
         ///END
         ///OBJECT BotInfo
         ///ID 2

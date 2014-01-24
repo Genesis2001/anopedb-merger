@@ -6,6 +6,7 @@
 
 namespace AnopeMerge.UnitTests
 {
+	using System;
 	using Core;
 	using Helpers;
 	using NUnit.Framework;
@@ -33,6 +34,38 @@ namespace AnopeMerge.UnitTests
 			SUT.Load(stream);
 
 			Assert.That(SUT.BotServ.Count, Is.EqualTo(3));
+		}
+
+		[Test]
+		public void Load_FromStreamWithSingleBotInfo_ShouldContainSingleBotInfoObjectWithMetaDataAttached()
+		{
+			var stream = Resources.BotInfoSingularTextStream.ToStream();
+
+			SUT.Load(stream);
+
+			Assert.That(SUT.BotServ.Count, Is.EqualTo(1));
+
+			var bot = SUT.BotServ[0];
+
+			Assert.That(bot, Is.Not.Null);
+			Assert.That(bot.Id, Is.EqualTo(1));
+			Assert.That(bot.Meta, Is.Not.Empty);
+		}
+
+		[Test]
+		public void AnopeObjectToString_LoadFromStreamWithSingleBot_ShouldOutputSameAsInput()
+		{
+			var expected = Resources.BotInfoSingularTextStream;
+			var stream = expected.ToStream();
+			SUT.Load(stream);
+			
+			Assert.That(SUT.BotServ.Count, Is.EqualTo(1));
+			
+			var bot = SUT.BotServ[0];
+			Assert.That(bot, Is.Not.Null);
+
+			var actual = bot.ToString();
+			Assert.That(actual, Is.EqualTo(expected));
 		}
 	}
 

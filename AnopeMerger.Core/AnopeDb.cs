@@ -10,6 +10,7 @@ namespace AnopeMerge.Core
 	using System.Collections;
 	using System.Collections.Generic;
 	using System.IO;
+	using System.Text;
 
 	[Serializable]
 	public class AnopeDb
@@ -89,7 +90,9 @@ namespace AnopeMerge.Core
 			{
 				if (tokens.Length > 2)
 				{
-					obj.Meta.Add(tokens[1], tokens[2]);
+					var value = line.Substring(line.IndexOf(tokens[1], StringComparison.Ordinal) + tokens[1].Length + 1);
+
+					obj.Meta.Add(tokens[1], value);
 				}
 			}
 
