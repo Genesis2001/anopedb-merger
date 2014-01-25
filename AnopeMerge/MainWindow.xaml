@@ -7,14 +7,11 @@
 		mc:Ignorable="d"
         Title="MainWindow"
 		ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-		d:DataContext="{d:DesignInstance viewModels:MergeViewModel}"
+		DataContext="{DynamicResource MyDataContext}"
 		Width="800" Height="450">
 	
 	<Window.Resources>
-		<ComboBox x:Key="ListSelection">
-			<ComboBoxItem Content="BotServ" />
-			<ComboBoxItem Content="NickServ" />
-		</ComboBox>
+		<viewModels:MergeViewModel x:Key="MyDataContext" />
 	</Window.Resources>
 	
     <Grid>
@@ -29,13 +26,15 @@
 		</Grid.RowDefinitions>
 		
 		<Border Grid.Row="0" Grid.Column="0" BorderBrush="Green" BorderThickness="2">
-			<TreeView ItemsSource="{Binding InputOne}">
-				<TreeView.ItemTemplate>
-					<HierarchicalDataTemplate>
-						<CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" />
-					</HierarchicalDataTemplate>
-				</TreeView.ItemTemplate>
-			</TreeView>
+			<StackPanel Orientation="Vertical">
+				<TreeView ItemsSource="{Binding InputOne}">
+					<TreeView.ItemTemplate>
+						<HierarchicalDataTemplate>
+							<CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked}" />
+						</HierarchicalDataTemplate>
+					</TreeView.ItemTemplate>
+				</TreeView>
+			</StackPanel>
 		</Border>
 		
 		<Border Grid.Row="0" Grid.Column="1" BorderBrush="Red" BorderThickness="2">

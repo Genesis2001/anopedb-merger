@@ -13,45 +13,18 @@ namespace AnopeMerge.ViewModels
 
 	public class MergeViewModel : IObservableClass
 	{
-		private AnopeDb inputOne;
-
-		public AnopeDb InputOne
+		public MergeViewModel()
 		{
-			get { return inputOne; }
-			set
-			{
-				NotifyPropertyChanging();
-				inputOne = value;
-				NotifyPropertyChanged();
-			}
+			InputOne = new AnopeDb();
+			InputTwo = new AnopeDb();
+			Output   = new AnopeDb();
 		}
 
-		private AnopeDb inputTwo;
+		public AnopeDb InputOne { get; private set; }
 
-		public AnopeDb InputTwo
-		{
-			get { return inputTwo; }
-			set
-			{
-				NotifyPropertyChanging();
-				inputTwo = value;
-				NotifyPropertyChanged();
-			}
-		}
+		public AnopeDb InputTwo { get; private set; }
 
-		private AnopeDb output;
-
-		public AnopeDb Output
-		{
-			get { return output; }
-			set
-			{
-				NotifyPropertyChanging();
-				output = value;
-				NotifyPropertyChanged();
-			}
-		}
-
+		public AnopeDb Output { get; private set; }
 
 		#region Implementation of INotifyPropertyChanged
 
@@ -78,7 +51,7 @@ namespace AnopeMerge.ViewModels
 			var handler = PropertyChanging;
 			if (handler != null) handler(this, new PropertyChangingEventArgs(propertyName));
 		}
-		
+
 		#endregion
 	}
 }

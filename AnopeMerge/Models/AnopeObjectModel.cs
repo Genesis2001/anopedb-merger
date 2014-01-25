@@ -10,7 +10,7 @@ namespace AnopeMerge.Models
 	using System.Runtime.CompilerServices;
 	using Core;
 
-	public class AnopeObjectModel : AnopeObject, IObservableClass
+	public class AnopeObjectModel : AnopeObject, ICheckedTreeViewItem
 	{
 		private bool isChecked;
 		private string name;
@@ -49,13 +49,13 @@ namespace AnopeMerge.Models
 
 		#endregion
 
-		public virtual void NotifyPropertyChanged([CallerMemberName] string propertyname = null)
+		public void NotifyPropertyChanged([CallerMemberName] string propertyname = null)
 		{
 			var handler = PropertyChanged;
 			if (handler != null) handler(this, new PropertyChangedEventArgs(propertyname));
 		}
 
-		public virtual void NotifyPropertyChanging([CallerMemberName] string propertyName = null)
+		public void NotifyPropertyChanging([CallerMemberName] string propertyName = null)
 		{
 			var handler = PropertyChanging;
 			if (handler != null) handler(this, new PropertyChangingEventArgs(propertyName));
