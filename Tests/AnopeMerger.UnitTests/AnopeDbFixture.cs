@@ -77,7 +77,7 @@ namespace AnopeMerge.UnitTests
 
 			SUT.Load(stream);
 
-			Assert.That(SUT.NickServ.Count, Is.EqualTo(3));
+			Assert.That(SUT.NickCore.Count, Is.EqualTo(3));
 		}
 
 		[Test]
