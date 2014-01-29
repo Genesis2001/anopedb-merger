@@ -119,15 +119,12 @@ namespace AnopeMerge.Core
 					{
 						BotServ.Add(obj);
 						obj = null;
-					}
-						break;
-
+					} break;
 					case "NickCore":
 					{
 						NickServ.Add(obj);
 						obj = null;
-					}
-						break;
+					} break;
 				}
 			}
 		}
