@@ -38,17 +38,7 @@ namespace AnopeMerge.Core
 		{
 			using (stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None))
 			{
-				using (reader = new StreamReader(stream))
-				{
-					while (!reader.EndOfStream)
-					{
-						var line = reader.ReadLine().Trim();
-						if (!string.IsNullOrEmpty(line))
-						{
-							OnDataRead(reader.ReadLine());
-						}
-					}
-				}
+				Load(stream);
 			}
 		}
 
@@ -67,6 +57,28 @@ namespace AnopeMerge.Core
 						}
 					}
 				}
+			}
+		}
+
+		public void Save(string path)
+		{
+		}
+
+		public void Save(Stream pStream)
+		{
+			using (var writer = new StreamWriter(pStream, new UTF8Encoding(false), 1024, true))
+			{
+				foreach (var item in BotServ)
+				{
+					writer.Write(item);
+					writer.Write("\n");
+				}
+
+				/*foreach (var item in NickServ)
+				{
+					writer.Write(item);
+					writer.Write("\n");
+				}*/
 			}
 		}
 

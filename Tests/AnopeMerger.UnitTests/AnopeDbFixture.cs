@@ -7,6 +7,8 @@
 namespace AnopeMerge.UnitTests
 {
 	using System;
+	using System.IO;
+	using System.Text;
 	using Core;
 	using Helpers;
 	using NUnit.Framework;
@@ -76,6 +78,36 @@ namespace AnopeMerge.UnitTests
 			SUT.Load(stream);
 
 			Assert.That(SUT.NickServ.Count, Is.EqualTo(3));
+		}
+
+		[Test]
+		public void SaveWithStream_ShouldWriteEverythingBackToStream()
+		{
+			StreamReader reader = null;
+			Stream stream = null;
+
+			try
+			{
+				var expected = Resources.BotInfoTextStream;
+				var inputStream = expected.ToStream();
+
+				SUT.Load(inputStream);
+
+				stream = new MemoryStream();
+				SUT.Save(stream);
+
+				stream.Position = 0;
+
+				reader = new StreamReader(stream);
+				var actual = reader.ReadToEnd();
+
+				Assert.That(actual, Is.EqualTo(expected));
+			}
+			finally
+			{
+				if (stream != null) stream.Dispose();
+				if (reader != null) reader.Dispose();
+			}
 		}
 	}
 
