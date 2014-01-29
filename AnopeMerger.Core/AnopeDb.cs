@@ -26,6 +26,8 @@ namespace AnopeMerge.Core
 			NickCore = new List<AnopeObject>();
 		}
 
+		// TODO: NickAlias, ChannelInfo, ModeLock, ChanAccess, Memo, BadWord, SeenInfo, NSMiscData, DNSServer, ForbidData, AJoinEntry, Exception,
+
 		public IList<AnopeObject> BotInfo { get; private set; }
 
 		public IList<AnopeObject> NickCore { get; private set; }
