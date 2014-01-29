@@ -35,7 +35,7 @@ namespace AnopeMerge.UnitTests
 
 			SUT.Load(stream);
 
-			Assert.That(SUT.BotServ.Count, Is.EqualTo(3));
+			Assert.That(SUT.BotInfo.Count, Is.EqualTo(3));
 		}
 
 		[Test]
@@ -45,9 +45,9 @@ namespace AnopeMerge.UnitTests
 
 			SUT.Load(stream);
 
-			Assert.That(SUT.BotServ.Count, Is.EqualTo(1));
+			Assert.That(SUT.BotInfo.Count, Is.EqualTo(1));
 
-			var bot = SUT.BotServ[0];
+			var bot = SUT.BotInfo[0];
 
 			Assert.That(bot, Is.Not.Null);
 			Assert.That(bot.Id, Is.EqualTo(1));
@@ -60,10 +60,10 @@ namespace AnopeMerge.UnitTests
 			var expected = Resources.BotInfoSingularTextStream;
 			var stream = expected.ToStream();
 			SUT.Load(stream);
-			
-			Assert.That(SUT.BotServ.Count, Is.EqualTo(1));
-			
-			var bot = SUT.BotServ[0];
+
+			Assert.That(SUT.BotInfo.Count, Is.EqualTo(1));
+
+			var bot = SUT.BotInfo[0];
 			Assert.That(bot, Is.Not.Null);
 
 			var actual = bot.ToString();

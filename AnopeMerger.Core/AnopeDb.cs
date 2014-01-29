@@ -15,10 +15,6 @@ namespace AnopeMerge.Core
 	[Serializable]
 	public class AnopeDb
 	{
-		public static readonly string[] BotInfo = {"nick", "user", "host", "realname", "created", "oper_only"};
-		public static readonly string[] NickCore = {"display", "pass", "email", "language", "access"};
-		public static readonly string[] Stats = {"maxusercnt", "maxusertime"};
-
 		private Stream stream;
 		private StreamReader reader;
 
@@ -26,13 +22,13 @@ namespace AnopeMerge.Core
 
 		public AnopeDb()
 		{
-			BotServ = new List<AnopeObject>();
-			NickServ = new List<AnopeObject>();
+			BotInfo = new List<AnopeObject>();
+			NickCore = new List<AnopeObject>();
 		}
 
-		public IList<AnopeObject> BotServ { get; private set; }
+		public IList<AnopeObject> BotInfo { get; private set; }
 
-		public IList<AnopeObject> NickServ { get; private set; }
+		public IList<AnopeObject> NickCore { get; private set; }
 		
 		public void Load(string path)
 		{
@@ -68,13 +64,13 @@ namespace AnopeMerge.Core
 		{
 			using (var writer = new StreamWriter(pStream, new UTF8Encoding(false), 1024, true))
 			{
-				foreach (var item in BotServ)
+				foreach (var item in BotInfo)
 				{
 					writer.Write(item);
 					writer.Write("\n");
 				}
 
-				/*foreach (var item in NickServ)
+				/*foreach (var item in NickCore)
 				{
 					writer.Write(item);
 					writer.Write("\n");
@@ -117,13 +113,13 @@ namespace AnopeMerge.Core
 				{
 					case "BotInfo":
 					{
-						BotServ.Add(obj);
+						BotInfo.Add(obj);
 						obj = null;
 					}
 						break;
 					case "NickCore":
 					{
-						NickServ.Add(obj);
+						NickCore.Add(obj);
 						obj = null;
 					}
 						break;
