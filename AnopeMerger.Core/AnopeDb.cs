@@ -57,7 +57,7 @@ namespace AnopeMerge.Core
 		}
 
 		/// <summary>
-		/// Writes the DB out to the specified <see cref="T:System.IO.Stream" />. Disposes of the stream upon completion.
+		/// Writes the DB out to the specified <see cref="T:System.IO.Stream" />.
 		/// </summary>
 		/// <param name="stream"></param>
 		public void Save(Stream stream)

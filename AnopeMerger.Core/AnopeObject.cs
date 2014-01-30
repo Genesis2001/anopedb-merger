@@ -8,6 +8,17 @@
 	[DataContract(Name = "OBJECT")]
 	public class AnopeObject
 	{
+		public static readonly IDictionary<String, String> NameMap = new Dictionary<string, string>
+		                                                             {
+			                                                             {"NickCore", "display"},
+			                                                             {"BotInfo", "nick"},
+																		 {"NickAlias", "nick"},
+			                                                             {"ChanAccess", "ci"},
+			                                                             {"SeenInfo", "nick"},
+																		 {"ChannelInfo", "name"},
+																		 {"ModeLock", "ci"},
+		                                                             };
+
 		public AnopeObject()
 		{
 			Meta = new Dictionary<string, string>();
@@ -18,6 +29,12 @@
 
 		[DataMember(Name = "ID")]
 		public int Id { get; set; }
+
+		[IgnoreDataMember]
+		public string Name
+		{
+			get { return NameMap.ContainsKey(ObjectType) ? Meta[NameMap[ObjectType]] : string.Empty; }
+		}
 
 		[DataMember(Name = "DATA")]
 		public IDictionary<string, string> Meta { get; private set; }
