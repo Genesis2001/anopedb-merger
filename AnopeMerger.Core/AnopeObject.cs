@@ -6,7 +6,7 @@
 	using System.Text;
 
 	[DataContract(Name = "OBJECT")]
-	public class AnopeObject
+	public class AnopeObject : IEquatable<AnopeObject>
 	{
 		public static readonly IDictionary<String, String> NameMap = new Dictionary<string, string>
 		                                                             {
@@ -40,6 +40,18 @@
 		public IDictionary<string, string> Meta { get; private set; }
 
 		#region Overrides of Object
+
+		/// <summary>
+		/// Indicates whether the current object is equal to another object of the same type.
+		/// </summary>
+		/// <returns>
+		/// true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+		/// </returns>
+		/// <param name="other">An object to compare with this object.</param>
+		public bool Equals(AnopeObject other)
+		{
+			throw new NotImplementedException();
+		}
 
 		/// <summary>
 		/// Returns a string that represents the current object.

@@ -54,6 +54,10 @@ namespace AnopeMerge.Core
 
 		public void Save(string path)
 		{
+			using (var stream = new FileStream(path, FileMode.Truncate, FileAccess.Write, FileShare.None))
+			{
+				Save(stream);
+			}
 		}
 
 		/// <summary>
