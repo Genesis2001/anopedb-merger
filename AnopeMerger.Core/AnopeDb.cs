@@ -15,13 +15,13 @@ namespace AnopeMerge.Core
 	[Serializable]
 	public class AnopeDb : IEnumerable<AnopeObject>
 	{
-		private HashSet<AnopeObject> list; 
+		private IList<AnopeObject> list;
 
 		private AnopeObject obj;
 
 		public AnopeDb()
 		{
-			list = new HashSet<AnopeObject>();
+			list = new List<AnopeObject>();
 		}
 
 		// TODO: NickAlias, ChannelInfo, ModeLock, ChanAccess, Memo, BadWord, SeenInfo, NSMiscData, DNSServer, ForbidData, AJoinEntry, Exception,
@@ -62,12 +62,18 @@ namespace AnopeMerge.Core
 		/// <param name="stream"></param>
 		public void Save(Stream stream)
 		{
-			using (var writer = new StreamWriter(stream, new UTF8Encoding(false)))
+			using (var writer = new StreamWriter(stream, new UTF8Encoding(false), 1024, true))
 			{
 				var max = list.Count - 1;
-				for (var i = 0; i < max; ++i)
+				for (var i = 0; i <= max; ++i)
 				{
-					
+					var o = list[i];
+					writer.Write(o);
+
+					if (i != max)
+					{
+						writer.Write("\n");
+					}
 				}
 			}
 		}
