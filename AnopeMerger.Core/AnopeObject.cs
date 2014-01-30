@@ -50,7 +50,8 @@
 		/// <param name="other">An object to compare with this object.</param>
 		public bool Equals(AnopeObject other)
 		{
-			throw new NotImplementedException();
+			// TODO: MORE checks. This isn't the final version.
+			return ObjectType == other.ObjectType && Id == other.Id;
 		}
 
 		/// <summary>
