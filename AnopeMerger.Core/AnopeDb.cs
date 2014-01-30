@@ -10,6 +10,7 @@ namespace AnopeMerge.Core
 	using System.Collections;
 	using System.Collections.Generic;
 	using System.IO;
+	using System.Linq;
 	using System.Text;
 
 	[Serializable]
@@ -25,7 +26,12 @@ namespace AnopeMerge.Core
 		}
 
 		// TODO: NickAlias, ChannelInfo, ModeLock, ChanAccess, Memo, BadWord, SeenInfo, NSMiscData, DNSServer, ForbidData, AJoinEntry, Exception,
-		
+
+		public IEnumerable<AnopeObject> FindAliasesForNick(string nick)
+		{
+			return list.Where(x => x.ObjectType.Equals("NickAlias") && x.Meta["nc"].Equals(nick));
+		}
+
 		public void Load(string path)
 		{
 			using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None))
