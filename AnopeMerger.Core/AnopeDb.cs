@@ -13,38 +13,32 @@ namespace AnopeMerge.Core
 	using System.Text;
 
 	[Serializable]
-	public class AnopeDb
+	public class AnopeDb : IEnumerable<AnopeObject>
 	{
-		private Stream stream;
-		private StreamReader reader;
+		private HashSet<AnopeObject> list; 
 
 		private AnopeObject obj;
 
 		public AnopeDb()
 		{
-			BotInfo = new List<AnopeObject>();
-			NickCore = new List<AnopeObject>();
+			list = new HashSet<AnopeObject>();
 		}
 
 		// TODO: NickAlias, ChannelInfo, ModeLock, ChanAccess, Memo, BadWord, SeenInfo, NSMiscData, DNSServer, ForbidData, AJoinEntry, Exception,
-
-		public IList<AnopeObject> BotInfo { get; private set; }
-
-		public IList<AnopeObject> NickCore { get; private set; }
 		
 		public void Load(string path)
 		{
-			using (stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None))
+			using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.None))
 			{
 				Load(stream);
 			}
 		}
 
-		public void Load(Stream pStream)
+		public void Load(Stream stream)
 		{
-			using (stream = pStream)
+			using (stream)
 			{
-				using (reader = new StreamReader(stream))
+				using (var reader = new StreamReader(stream))
 				{
 					while (!reader.EndOfStream)
 					{
@@ -62,21 +56,19 @@ namespace AnopeMerge.Core
 		{
 		}
 
-		public void Save(Stream pStream)
+		/// <summary>
+		/// Writes the DB out to the specified <see cref="T:System.IO.Stream" />. Disposes of the stream upon completion.
+		/// </summary>
+		/// <param name="stream"></param>
+		public void Save(Stream stream)
 		{
-			using (var writer = new StreamWriter(pStream, new UTF8Encoding(false), 1024, true))
+			using (var writer = new StreamWriter(stream, new UTF8Encoding(false)))
 			{
-				foreach (var item in BotInfo)
+				var max = list.Count - 1;
+				for (var i = 0; i < max; ++i)
 				{
-					writer.Write(item);
-					writer.Write("\n");
+					
 				}
-
-				/*foreach (var item in NickCore)
-				{
-					writer.Write(item);
-					writer.Write("\n");
-				}*/
 			}
 		}
 
@@ -111,22 +103,35 @@ namespace AnopeMerge.Core
 
 			if (line.StartsWith("END") && obj != null)
 			{
-				switch (obj.ObjectType)
-				{
-					case "BotInfo":
-					{
-						BotInfo.Add(obj);
-						obj = null;
-					}
-						break;
-					case "NickCore":
-					{
-						NickCore.Add(obj);
-						obj = null;
-					}
-						break;
-				}
+				list.Add(obj);
+				obj = null;
 			}
 		}
+
+		#region Implementation of IEnumerable
+
+		/// <summary>
+		/// Returns an enumerator that iterates through the collection.
+		/// </summary>
+		/// <returns>
+		/// A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+		/// </returns>
+		public IEnumerator<AnopeObject> GetEnumerator()
+		{
+			return list.GetEnumerator();
+		}
+
+		/// <summary>
+		/// Returns an enumerator that iterates through a collection.
+		/// </summary>
+		/// <returns>
+		/// An <see cref="T:System.Collections.IEnumerator"/> object that can be used to iterate through the collection.
+		/// </returns>
+		IEnumerator IEnumerable.GetEnumerator()
+		{
+			return GetEnumerator();
+		}
+
+		#endregion
 	}
 }

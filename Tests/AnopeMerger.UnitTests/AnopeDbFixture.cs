@@ -6,9 +6,8 @@
 
 namespace AnopeMerge.UnitTests
 {
-	using System;
 	using System.IO;
-	using System.Text;
+	using System.Linq;
 	using Core;
 	using Helpers;
 	using NUnit.Framework;
@@ -35,7 +34,8 @@ namespace AnopeMerge.UnitTests
 
 			SUT.Load(stream);
 
-			Assert.That(SUT.BotInfo.Count, Is.EqualTo(3));
+			var count = SUT.Count(x => x.ObjectType.Equals("BotInfo"));
+			Assert.That(count, Is.EqualTo(3));
 		}
 
 		[Test]
@@ -45,10 +45,11 @@ namespace AnopeMerge.UnitTests
 
 			SUT.Load(stream);
 
-			Assert.That(SUT.BotInfo.Count, Is.EqualTo(1));
+			var count = SUT.Count(x => x.ObjectType.Equals("BotInfo"));
+			Assert.That(count, Is.EqualTo(1));
 
-			var bot = SUT.BotInfo[0];
 
+			var bot = SUT.FirstOrDefault(x => x.ObjectType.Equals("BotInfo"));
 			Assert.That(bot, Is.Not.Null);
 			Assert.That(bot.Id, Is.EqualTo(1));
 			Assert.That(bot.Meta, Is.Not.Empty);
@@ -61,9 +62,10 @@ namespace AnopeMerge.UnitTests
 			var stream = expected.ToStream();
 			SUT.Load(stream);
 
-			Assert.That(SUT.BotInfo.Count, Is.EqualTo(1));
+			var count = SUT.Count(x => x.ObjectType.Equals("BotInfo"));
+			Assert.That(count, Is.EqualTo(1));
 
-			var bot = SUT.BotInfo[0];
+			var bot = SUT.FirstOrDefault(x => x.ObjectType.Equals("BotInfo"));
 			Assert.That(bot, Is.Not.Null);
 
 			var actual = bot.ToString();
@@ -77,7 +79,8 @@ namespace AnopeMerge.UnitTests
 
 			SUT.Load(stream);
 
-			Assert.That(SUT.NickCore.Count, Is.EqualTo(3));
+			var count = SUT.Count(x => x.ObjectType.Equals("NickCore"));
+			Assert.That(count, Is.EqualTo(3));
 		}
 
 		[Test]
