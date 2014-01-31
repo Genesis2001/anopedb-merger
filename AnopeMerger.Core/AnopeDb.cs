@@ -74,13 +74,11 @@ namespace AnopeMerge.Core
 		{
 			using (var writer = new StreamWriter(stream, new UTF8Encoding(false), 1024, true))
 			{
-				var max = list.Count - 1;
-				for (var i = 0; i <= max; ++i)
+				for (var i = 0; i <= list.Count - 1; ++i)
 				{
-					var o = list[i];
-					writer.Write(o);
+					writer.Write(list[i]);
 
-					if (i != max)
+					if (i != list.Count - 1)
 					{
 						writer.Write("\n");
 					}

@@ -112,15 +112,6 @@ namespace AnopeMerge.UnitTests
 				if (reader != null) reader.Dispose();
 			}
 		}
-
-		[Test]
-		public void Misc_ShouldBeAbleToDetectDuplicates()
-		{
-			var str    = Resources.NickCoreWithDuplicateValue;
-			var stream = str.ToStream();
-
-			SUT.Load(stream);
-		}
 	}
 
 	// ReSharper enable InconsistentNaming
