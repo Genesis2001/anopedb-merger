@@ -3,7 +3,7 @@
 //      Copyright (c) Zack Loveless.  All rights reserved.
 //  </copyright>
 // -----------------------------------------------------------------------------
-namespace MergeTool
+namespace MergeTool.Commands
 {
 	using System;
 	using System.Windows.Input;

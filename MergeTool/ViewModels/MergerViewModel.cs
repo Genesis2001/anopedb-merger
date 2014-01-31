@@ -12,6 +12,7 @@ namespace MergeTool.ViewModels
 	using System.Windows.Forms;
 	using System.Windows.Input;
 	using AnopeMerge.Core;
+	using Commands;
 
 	public class MergerViewModel : INotifyPropertyChanged
 	{
