@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="AnopeDb.cs" />
     <Compile Include="AnopeObject.cs" />
+    <Compile Include="ItemLoadedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

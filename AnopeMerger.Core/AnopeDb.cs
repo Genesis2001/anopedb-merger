@@ -13,11 +13,9 @@ namespace AnopeMerge.Core
 	using System.Linq;
 	using System.Text;
 
-	[Serializable]
 	public class AnopeDb : IEnumerable<AnopeObject>
 	{
 		private IList<AnopeObject> list;
-
 		private AnopeObject obj;
 
 		public AnopeDb()
@@ -25,7 +23,7 @@ namespace AnopeMerge.Core
 			list = new List<AnopeObject>();
 		}
 
-		// TODO: NickAlias, ChannelInfo, ModeLock, ChanAccess, Memo, BadWord, SeenInfo, NSMiscData, DNSServer, ForbidData, AJoinEntry, Exception,
+		public event EventHandler<ItemLoadedEventArgs> ItemLoaded;
 
 		public IEnumerable<AnopeObject> FindAliasesForNick(string nick)
 		{
@@ -66,10 +64,6 @@ namespace AnopeMerge.Core
 			}
 		}
 
-		/// <summary>
-		/// Writes the DB out to the specified <see cref="T:System.IO.Stream" />.
-		/// </summary>
-		/// <param name="stream"></param>
 		public void Save(Stream stream)
 		{
 			using (var writer = new StreamWriter(stream, new UTF8Encoding(false), 1024, true))
@@ -89,16 +83,16 @@ namespace AnopeMerge.Core
 		protected void OnDataRead(string line)
 		{
 			var tokens = line.Split(' ');
-			
+
 			if (line.StartsWith("OBJECT") && obj == null)
 			{
-				obj	= new AnopeObject();
+				obj = new AnopeObject();
 				obj.ObjectType = tokens[1];
 			}
 
 			if (line.StartsWith("ID") && obj != null)
 			{
-				int id;
+				int id = -1;
 				if (Int32.TryParse(tokens[1], out id))
 				{
 					obj.Id = id;
@@ -117,6 +111,9 @@ namespace AnopeMerge.Core
 
 			if (line.StartsWith("END") && obj != null)
 			{
+				var handler = ItemLoaded;
+				if (handler != null) handler(this, new ItemLoadedEventArgs(obj));
+
 				list.Add(obj);
 				obj = null;
 			}

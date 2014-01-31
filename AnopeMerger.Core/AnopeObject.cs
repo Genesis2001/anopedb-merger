@@ -51,9 +51,7 @@
 		public bool Equals(AnopeObject other)
 		{
 			// TODO: MORE checks. This isn't the final version.
-			if (ObjectType == other.ObjectType && Id == other.Id) return true;
-
-
+			return ObjectType == other.ObjectType && Id == other.Id;
 		}
 
 		/// <summary>
