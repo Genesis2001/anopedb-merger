@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:MergeTool.ViewModels"
+		xmlns:views="clr-namespace:MergeTool.Views"
         mc:Ignorable="d"
         Title="AnopeDb Merge Tool"
 		d:DataContext="{d:DesignInstance viewModels:MergerViewModel}"
@@ -35,67 +36,6 @@
 				<RowDefinition Height="*" />
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
-
-			<Border Grid.Row="0" Grid.Column="0" BorderBrush="Blue" BorderThickness="1">
-				<Grid Margin="5">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto" />
-						<RowDefinition Height="*" />
-					</Grid.RowDefinitions>
-
-					<DockPanel Grid.Row="0">
-						<Label DockPanel.Dock="Left" Content="Input" />
-						<StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-							<Button Command="{Binding BrowseLeftInputCommand}" Content="Browse" />
-							<Button Content="Load" Command="{Binding LoadLeftCommand}" />
-						</StackPanel>
-						<TextBox Text="{Binding LeftFileInput, UpdateSourceTrigger=PropertyChanged}" />
-					</DockPanel>
-
-					<TreeView Grid.Row="1" Margin="0,8">
-					</TreeView>
-				</Grid>
-			</Border>
-			
-			<Border Grid.Row="0" Grid.Column="1" BorderBrush="Green" BorderThickness="1">
-				<Grid Margin="5">
-					<Grid.RowDefinitions>
-						<RowDefinition Height="Auto" />
-						<RowDefinition Height="*" />
-					</Grid.RowDefinitions>
-
-					<DockPanel Grid.Row="0">
-						<Label DockPanel.Dock="Left" Content="Input" />
-						<StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-							<Button Command="{Binding BrowseRightInputCommand}" Content="Browse" />
-							<Button Content="Load" Command="{Binding LoadRightCommand}" />
-						</StackPanel>
-						<TextBox Text="{Binding RightFileInput, UpdateSourceTrigger=PropertyChanged}" />
-					</DockPanel>
-
-					<TreeView Grid.Row="1" Margin="0,8">
-					</TreeView>
-				</Grid>
-			</Border>
-
-			<Grid Grid.Row="0" Grid.Column="2" Margin="5">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="*" />
-				</Grid.RowDefinitions>
-				
-				<DockPanel Grid.Row="0">
-					<Label DockPanel.Dock="Left" Content="Input" />
-					<StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
-						<Button Command="{Binding BrowseRightInputCommand}" Content="Browse" />
-						<Button Content="Load" Command="{Binding LoadRightCommand}" />
-					</StackPanel>
-					<TextBox Text="{Binding RightFileInput, UpdateSourceTrigger=PropertyChanged}" />
-				</DockPanel>
-				
-				<TreeView Grid.Row="1" Margin="0,8">
-				</TreeView>
-			</Grid>
 			
 			<DockPanel Grid.Row="1" Grid.Column="1" Margin="10,5">
 				<Label DockPanel.Dock="Left" Content="Output" />
